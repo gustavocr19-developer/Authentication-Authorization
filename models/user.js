@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Promisse = require('promise')
 const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
@@ -26,6 +27,18 @@ UserSchema.pre('save', function (next) {
     })
   })
 })
+
+UserSchema.methods.checkPassword = function (password) {
+  return new Promisse((resolve, reject) => {
+    bcrypt.compare(password, this.password, (err, isMatch) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(isMatch)
+      }
+    })
+  })
+}
 
 
 const User = mongoose.model('User', UserSchema)
