@@ -1,5 +1,13 @@
 # Authentication-Authorization
-Authentication and Authorization using Node.js, EJS, Bootstrap
+Authentication and Authorization using Node.js, EJS, Bootstrap, Mongo DB
 
-yarn add express-session
-yarn add body-parser
+## Description
+
+A simple application to show authentication and authorization process
+
+
+## How to use
+
+npm install
+npm start 
+
